@@ -14,7 +14,7 @@ project ("JuegoStalker")
 find_package(unofficial-pdcurses REQUIRED)
 
 # Add source to this project's executable.
-add_executable (JuegoStalker "JuegoStalker.cpp" "JuegoStalker.h")
+add_executable (JuegoStalker "JuegoStalker.cpp" "JuegoStalker.h" "Laberinto/Laberinto.cpp")
 
 target_link_libraries(JuegoStalker PRIVATE unofficial::pdcurses::pdcurses)
 
