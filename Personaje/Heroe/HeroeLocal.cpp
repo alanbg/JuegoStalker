@@ -1,21 +1,21 @@
 
-#include "Personaje.hpp"
+#include "HeroeLocal.hpp"
 
-Personaje::Personaje(std::shared_ptr<Laberinto> lab, std::shared_ptr<UI> ui) :
+HeroeLocal::HeroeLocal(std::shared_ptr<Laberinto> lab, std::shared_ptr<UI> ui) :
 	posicionX(1), posicionY(1)
 {
 	this->ui = ui;
 	this->laberinto = lab;
 }
 
-Personaje::Personaje(std::shared_ptr<Laberinto> lab, std::shared_ptr<UI> ui, int x, int y) :
+HeroeLocal::HeroeLocal(std::shared_ptr<Laberinto> lab, std::shared_ptr<UI> ui, int x, int y) :
 	posicionX(x), posicionY(y)
 {
 	this->ui = ui;
 	this->laberinto = lab;
 }
 
-void Personaje::mover(Direccion dir) {
+void HeroeLocal::mover(Direccion dir) {
 	switch (dir) {
 	case Direccion::IZQUIERDA:
 		if (!(laberinto->esPared(posicionX, posicionY - 1))) {
@@ -48,7 +48,7 @@ void Personaje::mover(Direccion dir) {
 	}
 }
 
-void Personaje::inicializar() {
+void HeroeLocal::inicializar() {
 	// Fuente de entropía
 	std::random_device semilla;
 

@@ -12,14 +12,22 @@ endif()
 project ("JuegoStalker")
 
 find_package(unofficial-pdcurses REQUIRED)
+find_package(Boost REQUIRED)
 
 # Add source to this project's executable.
-add_executable (JuegoStalker "JuegoStalker.cpp" "JuegoStalker.hpp" "Laberinto/Laberinto.cpp" "UI/UINcurses.cpp" "Personaje/Personaje.cpp")
+add_executable (JuegoStalker
+	"JuegoStalker.cpp"
+	"JuegoStalker.hpp"
+	"Laberinto/Laberinto.cpp"
+	"UI/UINcurses.cpp"
+	"Personaje/Heroe/HeroeLocal.cpp"
+	"Red/ServidorRed.cpp"
+	"Red/ClienteRed.cpp"
+)
 
 target_link_libraries(JuegoStalker PRIVATE unofficial::pdcurses::pdcurses)
+target_link_libraries(JuegoStalker PRIVATE Boost::headers)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET JuegoStalker PROPERTY CXX_STANDARD 20)
 endif()
-
-# TODO: Add tests and install targets if needed.

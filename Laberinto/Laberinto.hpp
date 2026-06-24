@@ -2,6 +2,7 @@
 
 #include <array>
 #include <random>
+#include <thread>
 
 #include "../UI/UI.hpp"
 
