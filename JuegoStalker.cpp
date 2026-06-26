@@ -3,25 +3,13 @@
 
 #include <iostream>
 
-struct EstadoInicial {
-    struct Personaje {
-        int posicionX;
-        int posicionY;
-    };
-    struct Perseguidor {
-        int posicionX;
-        int posicionY;
-    };
-    std::random_device semilla;
-};
-
 int main(int argc, char* argv[])
 {
     std::shared_ptr<UI> ui;
 
     std::shared_ptr<Laberinto> laberinto;
     std::shared_ptr<Personaje> personaje;
-    //std::shared_ptr<Perseguidor> perseguidor;
+    std::shared_ptr<Personaje> perseguidor;
 
 
 #ifdef CURSES

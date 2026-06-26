@@ -40,4 +40,5 @@ awaitable<void> ServidorRed::loop(std::shared_ptr<ip::tcp::socket> socket) {
     //while (true) 
     //  async_write
     //  async_read
+    co_return; // para permitir compilación vacía
 }

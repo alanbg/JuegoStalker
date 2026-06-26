@@ -38,5 +38,5 @@ awaitable<void> ClienteRed::loop(std::shared_ptr<ip::tcp::socket> socket) {
     //while (true) 
     //  async_read
     //  async_write
-
+    co_return; // para permitir compilación vacía
 }
