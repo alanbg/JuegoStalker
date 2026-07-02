@@ -8,7 +8,7 @@ int main(int argc, char* argv[])
     std::shared_ptr<UI> ui;
 
     std::shared_ptr<Laberinto> laberinto;
-    std::shared_ptr<Personaje> personaje;
+    std::shared_ptr<Personaje> heroe;
     std::shared_ptr<Personaje> perseguidor;
 
 
@@ -38,23 +38,32 @@ int main(int argc, char* argv[])
         laberinto = std::make_shared<Laberinto>(ui);
         laberinto->dibujarLaberinto();
 
-        personaje = std::make_shared<HeroeLocal>(laberinto, ui);
-        personaje->inicializar();
+        // Local (teclado)
+        heroe = std::make_shared<HeroeLocal>();
 
-        //perseguidor = std::make_shared<Perseguidor>(laberinto, ui);
-        //perseguidor->inicializar();
+        // Perseguidor IA
+        perseguidor = std::make_shared<PerseguidorIA>();
 
     }
     else if (opcion == 2) {
         // Multijugador (heroe)
 
+        // Local (teclado)
+        heroe = std::make_shared<HeroeLocal>();
+
+        // Perseguidor humano remoto
+        perseguidor = std::make_shared<PerseguidorHumanoRemoto>();
 
 
     }
     else if (opcion == 3) {
         // Multijugador (perseguidor)
 
+        // Humano remoto (servidor)
+        heroe = std::make_shared<HeroeRemoto>();
 
+        // Humano local (cliente)
+        perseguidor = std::make_shared<PerseguidorHumanoLocal>();
 
     }
 
@@ -62,28 +71,8 @@ int main(int argc, char* argv[])
 
 	// Game loop
 	while(gameRunning) {
-        int input = getch(); // Espera la entrada del usuario
-
-        switch (input) {
-        case KEY_UP:
-            personaje->mover(Direccion::ARRIBA);
-            break;
-        case KEY_DOWN:
-            personaje->mover(Direccion::ABAJO);
-            break;
-        case KEY_LEFT:
-            personaje->mover(Direccion::IZQUIERDA);
-            break;
-        case KEY_RIGHT:
-            personaje->mover(Direccion::DERECHA);
-            break;
-        case 'q': case 'Q':
-            gameRunning = false;
-            break;
-        }
+        
 	}
-
-
 
 	return 0;
 }

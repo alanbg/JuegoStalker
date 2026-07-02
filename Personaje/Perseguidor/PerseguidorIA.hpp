@@ -1,0 +1,4 @@
+
+class PerseguidorIA : public Personaje {
+
+};

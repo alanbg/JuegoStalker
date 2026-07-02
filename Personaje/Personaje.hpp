@@ -1,3 +1,6 @@
+#include <memory>
+#include "../Laberinto/Laberinto.hpp"
+#include "../UI/UI.hpp"
 
 enum class Direccion {
 	ARRIBA = 0,
@@ -6,8 +9,20 @@ enum class Direccion {
 	DERECHA
 };
 
+struct Posicion {
+	uint8_t  posicionX;
+	uint8_t  posicionY;
+};
+
 class Personaje {
+protected:
+	std::shared_ptr<UI> ui;
+	std::shared_ptr<Laberinto> laberinto;
 public:
-	virtual void mover(Direccion dir) = 0;
-	virtual void inicializar() = 0;
+
+	Posicion posicion;
+
+	virtual ~Personaje() = default;
+
+	virtual void mover() = 0;
 };

@@ -1,22 +1,16 @@
 
 #include "HeroeLocal.hpp"
 
-HeroeLocal::HeroeLocal(std::shared_ptr<Laberinto> lab, std::shared_ptr<UI> ui) :
-	posicionX(1), posicionY(1)
-{
-	this->ui = ui;
-	this->laberinto = lab;
+HeroeLocal::HeroeLocal() {
+
 }
 
-HeroeLocal::HeroeLocal(std::shared_ptr<Laberinto> lab, std::shared_ptr<UI> ui, int x, int y) :
-	posicionX(x), posicionY(y)
-{
-	this->ui = ui;
-	this->laberinto = lab;
+HeroeLocal::~HeroeLocal() {
+
 }
 
-void HeroeLocal::mover(Direccion dir) {
-	switch (dir) {
+void HeroeLocal::moverLocal(Direccion dir) {
+	/*switch (dir) {
 	case Direccion::IZQUIERDA:
 		if (!(laberinto->esPared(posicionX, posicionY - 1))) {
 			ui->borrarCelda(posicionX, posicionY);
@@ -45,10 +39,31 @@ void HeroeLocal::mover(Direccion dir) {
 			ui->dibujarPersonaje(posicionX, posicionY);
 		}
 		break;
-	}
+	}*/
 }
 
-void HeroeLocal::inicializar() {
+void HeroeLocal::mover() {
+	 
+	int input = getch(); // Espera la entrada del usuario
+
+	switch (input) {
+	case KEY_UP:
+		moverLocal(Direccion::ARRIBA);
+		break;
+	case KEY_DOWN:
+		moverLocal(Direccion::ABAJO);
+		break;
+	case KEY_LEFT:
+		moverLocal(Direccion::IZQUIERDA);
+		break;
+	case KEY_RIGHT:
+		moverLocal(Direccion::DERECHA);
+		break;
+	}
+
+}
+
+/*void HeroeLocal::inicializar() {
 	// Fuente de entropía
 	std::random_device semilla;
 
@@ -72,4 +87,4 @@ void HeroeLocal::inicializar() {
 	posicionY = posInicialY;
 
 	ui->dibujarPersonaje(posicionX, posicionY);
-}
+}*/
