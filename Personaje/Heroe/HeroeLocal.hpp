@@ -7,7 +7,7 @@ private:
 
 public:
 
-	HeroeLocal();
+	HeroeLocal(Posicion posicionInicial);
 	~HeroeLocal();
 
 	void mover() override;

@@ -1,6 +1,8 @@
 #include "HeroeRemoto.hpp"
+#include <iostream>
 
-HeroeRemoto::HeroeRemoto() {
+HeroeRemoto::HeroeRemoto(Posicion posicionInicial) {
+    posicion = posicionInicial;
     red.inicializar(sizeof(Posicion));
 }
 
@@ -9,12 +11,11 @@ HeroeRemoto::~HeroeRemoto() {
 }
 
 void HeroeRemoto::mover() {
-    Posicion posicionHeroe;
-    Posicion miPosicion{ 1, 1 };
+    Posicion posicionHeroeRemoto;
 
     // Recibir posición del heroe remoto
-    red.leerDatos(&posicionHeroe, sizeof(posicionHeroe));
+    red.leerDatos(&posicionHeroeRemoto, sizeof(posicionHeroeRemoto));
 
-    // Enviar mi posición (stalker local) al servidor
-    red.enviarDatos(&miPosicion, sizeof(miPosicion));
+    posicion = posicionHeroeRemoto;
+
 }

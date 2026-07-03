@@ -1,7 +1,12 @@
 #include "PerseguidorHumanoRemoto.hpp"
 
-PerseguidorHumanoRemoto::PerseguidorHumanoRemoto() {
+PerseguidorHumanoRemoto::PerseguidorHumanoRemoto(Posicion posicionInicial, std::random_device& semilla) {
+
+    posicion = posicionInicial;
     red.inicializar(sizeof(Posicion));
+
+    // "Handshake" inicial
+    red.enviarDatos(&semilla, sizeof(semilla));
 }
 
 PerseguidorHumanoRemoto::~PerseguidorHumanoRemoto() {
@@ -9,12 +14,11 @@ PerseguidorHumanoRemoto::~PerseguidorHumanoRemoto() {
 }
 
 void PerseguidorHumanoRemoto::mover() {
-    Posicion posicionPerseguidor;
-    Posicion miPosicion{ 1, 1 };
+    Posicion posicionPerseguidorRemoto;
 
     // Recibir posición del perseguidor remoto
-    red.leerDatos(&posicionPerseguidor, sizeof(posicionPerseguidor));
+    red.leerDatos(&posicionPerseguidorRemoto, sizeof(posicionPerseguidorRemoto));
 
-    // Enviar mi posición (heroe local) al cliente
-    red.enviarDatos(&miPosicion, sizeof(miPosicion));
+    posicion = posicionPerseguidorRemoto;
+
 }

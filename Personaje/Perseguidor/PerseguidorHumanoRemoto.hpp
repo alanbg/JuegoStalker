@@ -1,3 +1,5 @@
+#include <random>
+
 #include "../Personaje.hpp"
 #include "../../Red/ServidorRed.hpp"
 
@@ -6,7 +8,7 @@ private:
 	ServidorRed red;
 
 public:
-	PerseguidorHumanoRemoto();
+	PerseguidorHumanoRemoto(Posicion posicionInicial, std::random_device& semilla);
 	~PerseguidorHumanoRemoto();
 
 	void mover() override;

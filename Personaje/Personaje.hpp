@@ -1,25 +1,14 @@
 #pragma once
 
-#include <memory>
-#include "../Laberinto/Laberinto.hpp"
+//#include <memory>
+//#include "../Laberinto/Laberinto.hpp"
+#include "../Common/Common.hpp"
 //#include "../UI/UI.hpp"
-
-enum class Direccion {
-	ARRIBA = 0,
-	ABAJO,
-	IZQUIERDA,
-	DERECHA
-};
-
-struct Posicion {
-	uint8_t  posicionX;
-	uint8_t  posicionY;
-};
 
 class Personaje {
 protected:
 	//std::shared_ptr<UI> ui;
-	std::shared_ptr<Laberinto> laberinto;
+	//std::shared_ptr<Laberinto> laberinto;
 public:
 
 	Posicion posicion;

@@ -1,8 +1,8 @@
 
 #include "HeroeLocal.hpp"
 
-HeroeLocal::HeroeLocal() {
-
+HeroeLocal::HeroeLocal(Posicion posicionInicial) {
+	posicion = posicionInicial;
 }
 
 HeroeLocal::~HeroeLocal() {

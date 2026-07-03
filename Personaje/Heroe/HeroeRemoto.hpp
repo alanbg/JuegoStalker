@@ -6,7 +6,7 @@ private:
 	ClienteRed red;
 
 public:
-	HeroeRemoto();
+	HeroeRemoto(Posicion posicionInicial);
 	~HeroeRemoto();
 
 	void mover() override;

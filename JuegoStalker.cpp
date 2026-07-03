@@ -32,6 +32,10 @@ int main(int argc, char* argv[])
 
     std::cin >> opcion;
 
+    Posicion posicionInicialHeroe{ 1,1 };
+    Posicion posicionInicialPerseguidor{ 3,3 };
+    std::random_device semilla;
+
     if (opcion == 1) {
         // Un solo jugador
 
@@ -39,7 +43,7 @@ int main(int argc, char* argv[])
         laberinto->dibujarLaberinto();
 
         // Local (teclado)
-        heroe = std::make_shared<HeroeLocal>();
+        heroe = std::make_shared<HeroeLocal>(posicionInicialHeroe);
 
         // Perseguidor IA
         perseguidor = std::make_shared<PerseguidorIA>();
@@ -49,20 +53,20 @@ int main(int argc, char* argv[])
         // Multijugador (heroe)
 
         // Local (teclado)
-        heroe = std::make_shared<HeroeLocal>();
+        heroe = std::make_shared<HeroeLocal>(posicionInicialHeroe);
 
         // Perseguidor humano remoto
-        perseguidor = std::make_shared<PerseguidorHumanoRemoto>();
+        perseguidor = std::make_shared<PerseguidorHumanoRemoto>(posicionInicialPerseguidor, semilla);
 
     }
     else if (opcion == 3) {
         // Multijugador (perseguidor)
 
         // Humano remoto (servidor)
-        heroe = std::make_shared<HeroeRemoto>();
+        heroe = std::make_shared<HeroeRemoto>(posicionInicialHeroe);
 
         // Humano local (cliente)
-        perseguidor = std::make_shared<PerseguidorHumanoLocal>();
+        perseguidor = std::make_shared<PerseguidorHumanoLocal>(posicionInicialPerseguidor);
 
     }
 
@@ -70,7 +74,10 @@ int main(int argc, char* argv[])
 
 	// Game loop
 	while(gameRunning) {
-        
+        heroe->mover();
+        perseguidor->mover();
+
+
 	}
 
 	return 0;

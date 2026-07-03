@@ -1,8 +1,9 @@
 
 #include "PerseguidorHumanoLocal.hpp"
 
-PerseguidorHumanoLocal::PerseguidorHumanoLocal() {
-
+PerseguidorHumanoLocal::PerseguidorHumanoLocal(Posicion posicionInicial) {
+	posicion = posicionInicial;
+	red.inicializar(sizeof(Posicion));
 }
 
 PerseguidorHumanoLocal::~PerseguidorHumanoLocal() {
@@ -61,8 +62,8 @@ void PerseguidorHumanoLocal::mover() {
 		break;
 	}
 
-	// TODO: Mandar posición al héroe remoto
-
+	// Mandar posición al héroe remoto
+	red.enviarDatos(&posicion, sizeof(posicion));
 }
 
 /*void HeroeLocal::inicializar() {
