@@ -10,5 +10,6 @@ public:
 	HeroeRemoto(Posicion posicionInicial, std::shared_ptr<UI> ui, Laberinto& laberinto, std::shared_ptr<ClienteRed> red);
 
 	void mover() override;
-
+	void perder() override;
+	void ganar() override;
 };

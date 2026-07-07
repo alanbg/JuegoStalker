@@ -200,11 +200,13 @@ int main(int argc, char* argv[])
     // Termina el juego
 
     if (estadoJuego == Estado::PERDIDO) {
-        ui->desplegarTexto("========PERDISTE========");
+        heroe->perder();
+        perseguidor->ganar();
+
     }
     else if (estadoJuego == Estado::GANADO) {
-        ui->desplegarTexto("========GANASTE========");
-
+        heroe->ganar();
+        perseguidor->perder();
     }
 
     ui->leerTeclado();

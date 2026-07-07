@@ -58,3 +58,11 @@ void HeroeLocalSolo::mover() {
 	}
 
 }
+
+void HeroeLocalSolo::perder() {
+	ui->desplegarTexto("========PERDISTE========");
+}
+
+void HeroeLocalSolo::ganar() {
+	ui->desplegarTexto("========GANASTE========");
+}

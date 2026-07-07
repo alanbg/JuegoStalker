@@ -18,3 +18,11 @@ void PerseguidorHumanoRemoto::mover() {
     ui->actualizarEntidad(posicion.posicionX, posicion.posicionY, TipoEntidad::PERSEGUIDOR);
 
 }
+
+void PerseguidorHumanoRemoto::perder() {
+
+}
+
+void PerseguidorHumanoRemoto::ganar() {
+
+}

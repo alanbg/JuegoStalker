@@ -60,3 +60,11 @@ void PerseguidorHumanoLocal::mover() {
 	// Mandar posición al héroe remoto
 	red->enviarDatos(&posicion, sizeof(posicion));
 }
+
+void PerseguidorHumanoLocal::perder() {
+	ui->desplegarTexto("========PERDISTE========");
+}
+
+void PerseguidorHumanoLocal::ganar() {
+	ui->desplegarTexto("========GANASTE========");
+}

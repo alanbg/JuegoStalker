@@ -9,5 +9,6 @@ public:
 	PerseguidorHumanoRemoto(Posicion posicionInicial, std::shared_ptr<UI> ui, Laberinto& laberinto, std::shared_ptr<ServidorRed> red);
 
 	void mover() override;
-
+	void perder() override;
+	void ganar() override;
 };

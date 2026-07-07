@@ -20,4 +20,6 @@ public:
 
 	// Depende de cada rol (heroe/stalker|local/remoto)
 	virtual void mover() = 0;
+	virtual void perder() = 0;
+	virtual void ganar() = 0;
 };

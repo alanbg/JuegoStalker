@@ -12,3 +12,11 @@ PerseguidorIA::~PerseguidorIA() {
 void PerseguidorIA::mover() {
 
 }
+
+void PerseguidorIA::perder() {
+
+}
+
+void PerseguidorIA::ganar() {
+
+}

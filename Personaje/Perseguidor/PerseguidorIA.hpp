@@ -7,4 +7,7 @@ public:
 	~PerseguidorIA();
 
 	void mover() override;
+	void perder() override;
+	void ganar() override;
+
 };

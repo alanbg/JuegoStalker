@@ -18,3 +18,11 @@ void HeroeRemoto::mover() {
     ui->actualizarEntidad(posicion.posicionX, posicion.posicionY, TipoEntidad::HEROE);
 
 }
+
+void HeroeRemoto::perder() {
+
+}
+
+void HeroeRemoto::ganar() {
+
+}

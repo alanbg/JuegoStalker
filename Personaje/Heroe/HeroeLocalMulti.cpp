@@ -62,3 +62,11 @@ void HeroeLocalMulti::mover() {
 	// Mandar posición al perseguidor remoto
 	red->enviarDatos(&posicion, sizeof(posicion));
 }
+
+void HeroeLocalMulti::perder() {
+	ui->desplegarTexto("========PERDISTE========");
+}
+
+void HeroeLocalMulti::ganar() {
+	ui->desplegarTexto("========GANASTE========");
+}
